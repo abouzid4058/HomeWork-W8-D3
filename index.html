@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Blog</title>
+
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+
+  <!-- Your styles moved out of <style> into styles.css -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+
+<body>
+  <!-- Root Vue app -->
+  <div id="app" class="container py-4">
+
+    <!-- NEW nav bar component for Day 3 -->
+    <nav-bar></nav-bar>
+
+    <!-- Header / chili image / "Comments" -->
+    <header-component></header-component>
+
+    <!-- Posts list -->
+    <main-component :showProfile="showProfile"></main-component>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+    <!-- Floating Profile Box -->
+    <div v-if="selectedAuthor" class="profile-box">
+      <img :src="selectedAuthor.photo" alt="Profile photo">
+      <h3>{{ selectedAuthor.name }}</h3>
+      <p><strong>Foodie Level:</strong> {{ selectedAuthor.level }}</p>
+      <p>{{ selectedAuthor.bio }}</p>
+      <button @click="closeProfile">Close</button>
+    </div>
+
+  </div>
+
+  <!-- Your Vue code now lives in app.js -->
+  <script src="app.js"></script>
+</body>
+
+</html>
